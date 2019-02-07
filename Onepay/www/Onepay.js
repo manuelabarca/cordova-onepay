@@ -1,5 +1,7 @@
 var exec = require('cordova/exec');
 
-exports.coolMethod = function (arg0, success, error) {
-    exec(success, error, 'Onepay', 'coolMethod', [arg0]);
+
+
+exports.initPayment = function(occ, success, error){
+    exec(success, error, "Onepay", "initPayment", [occ]);
 };
