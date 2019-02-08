@@ -1,2 +1,37 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-onepay" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"><name>Onepay</name><js-module name="Onepay" src="www/Onepay.js"><clobbers target="cordova.plugins.Onepay" /></js-module><platform name="ios"><config-file parent="/*" target="config.xml"><feature name="Onepay"><param name="ios-package" value="Onepay" /></feature></config-file><source-file src="src/ios/Onepay.m" /></platform><platform name="android"><config-file parent="/*" target="res/xml/config.xml"><feature name="Onepay"><param name="android-package" value="cordova-plugin-onepay.Onepay" /></feature></config-file><config-file parent="/*" target="AndroidManifest.xml"></config-file><source-file src="src/android/Onepay.java" target-dir="src/cordova-plugin-onepay/Onepay" /></platform></plugin>
+<plugin id="cordova-plugin-onepay" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<name>Onepay</name>
+<js-module name="Onepay" src="www/Onepay.js">
+<clobbers target="cordova.plugins.Onepay" />
+</js-module>
+
+<!-- iOS Configuración -->
+<platform name="ios">
+    <config-file parent="/*" target="config.xml">
+        <feature name="Onepay">
+            <param name="ios-package" value="Onepay" />
+        </feature>
+    </config-file>
+<source-file src="src/ios/Onepay.m" />
+  <pods-config ios-min-version="8.0" use-frameworks="true">
+    </pods-config>
+      <pod name="Onepay" />
+  
+</platform>
+<!-- Android Configuración -->
+<platform name="android">
+    <config-file parent="/*" target="res/xml/config.xml">
+        <feature name="Onepay">
+            <param name="android-package" value="cordova-plugin-onepay.Onepay" />
+        </feature>
+    </config-file>
+
+    <config-file parent="/*" target="AndroidManifest.xml">
+      <uses-permission android:name="android.permission.INTERNET" />
+    </config-file>
+
+<source-file src="src/android/Onepay.java" target-dir="src/cordova-plugin-onepay/Onepay" />
+    <framework custom="true" src="src/android/onepay-sdk.gradle" type="gradleReference" />
+
+</platform>
+</plugin>
